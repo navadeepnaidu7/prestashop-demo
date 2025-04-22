@@ -6,7 +6,8 @@ mutagen_linux_amd64_v0.17.6.tar.gz
 mutagen-agents.tar.gz
 prestashop_backup.sql
 prestashop.tar.gz
-
+prestashop_deploy_key
+prestashop_deploy_key.pub
 # Environment variables and secrets
 .env
 *.env
