@@ -1,0 +1,32 @@
+cloud-comp-two.pem
+/cloud-comp-two.pem:Zone.Identifier
+html.tar.xz
+/html
+mutagen_linux_amd64_v0.17.6.tar.gz
+mutagen-agents.tar.gz
+prestashop_backup.sql
+prestashop.tar.gz
+
+# Environment variables and secrets
+.env
+*.env
+
+# Logs and temp files
+*.log
+/logs
+/temp
+/tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+.directory
+*.swp
+*.swo
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-*mysql_data/
+*.pem
+.env

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: prestashop_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpass}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-prestashop}
+      MYSQL_USER: ${MYSQL_USER:-ps_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ps_pass}
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  prestashop:
+    image: prestashop/prestashop:latest
+    container_name: prestashop_web
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "127.0.0.1:12345:80"  # Use 8080 to avoid Windows port conflicts
+    environment:
+      DB_SERVER: mysql
+      DB_NAME: ${MYSQL_DATABASE:-prestashop}
+      DB_USER: ${MYSQL_USER:-ps_user}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-ps_pass}
+
+volumes:
+  mysql_data:
+
